@@ -1,0 +1,30 @@
+<h2>Lista produktów</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nazwa</th>
+      <th>Opis</th>
+      <th>Cena</th>
+      <th>Data wpisu</th>
+      <th>Szczegóły</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produkt of produkty">
+      <td>{{ produkt.id }}</td>
+      <td>{{ produkt.nazwa }}</td>
+      <td>{{ produkt.opis }}</td>
+      <td>{{ produkt.cena | currency:'$' }}</td>
+      <td>{{ produkt.dataWpisu | date:'dd.MM.yyyy' }}</td>
+      <td><a [routerLink]="['/produkty', produkt.id]">Szczegóły</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <button (click)="zmienStrone(1)">1</button>
+  <button (click)="zmienStrone(2)">2</button>
+  <span> Strona: {{ aktualnaStrona }}</span>
+</div>
